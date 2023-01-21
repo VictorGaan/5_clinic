@@ -1,0 +1,15 @@
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\bin\Debug\net7.0\Your.TestCleanArhitecture.Core.deps.json
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\bin\Debug\net7.0\Your.TestCleanArhitecture.Core.dll
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\bin\Debug\net7.0\Your.TestCleanArhitecture.Core.pdb
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\bin\Debug\net7.0\Your.TestCleanArhitecture.SharedKernel.dll
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\bin\Debug\net7.0\Your.TestCleanArhitecture.SharedKernel.pdb
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\Your.TestCleanArhitecture.Core.csproj.AssemblyReference.cache
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\Your.TestCleanArhitecture.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\Your.TestCleanArhitecture.Core.AssemblyInfoInputs.cache
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\Your.TestCleanArhitecture.Core.AssemblyInfo.cs
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\Your.TestCleanArhitecture.Core.csproj.CoreCompileInputs.cache
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\Your.TestCleanArhitecture.Core.csproj.CopyComplete
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\Your.TestCleanArhitecture.Core.dll
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\refint\Your.TestCleanArhitecture.Core.dll
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\Your.TestCleanArhitecture.Core.pdb
+C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Core\obj\Debug\net7.0\ref\Your.TestCleanArhitecture.Core.dll

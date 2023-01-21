@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ur5+jdOad+amjvEgXLQwzAta5ikhXCcNOOg+G6m2KbstJHsK+glwLUD3w7emJ5ffF++bBXFWJgar4JQYk3wkJw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Александр\\Your.TestCleanArhitecture\\src\\Your.TestCleanArhitecture.Core\\Your.TestCleanArhitecture.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Александр\\.nuget\\packages\\ardalis.guardclauses\\4.0.1\\ardalis.guardclauses.4.0.1.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\ardalis.result\\4.1.0\\ardalis.result.4.1.0.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\ardalis.smartenum\\2.1.0\\ardalis.smartenum.2.1.0.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\ardalis.specification\\6.1.0\\ardalis.specification.6.1.0.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\autofac\\6.5.0\\autofac.6.5.0.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\jetbrains.annotations\\2021.3.0\\jetbrains.annotations.2021.3.0.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\mediatr\\11.1.0\\mediatr.11.1.0.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Александр\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

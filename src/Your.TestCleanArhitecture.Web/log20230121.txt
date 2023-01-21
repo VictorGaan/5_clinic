@@ -1,0 +1,399 @@
+2023-01-21 12:59:04.422 +07:00 [INF] Registered 5 endpoints in 336 milliseconds.
+2023-01-21 12:59:04.662 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 12:59:05.727 +07:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA journal_mode = 'wal';
+2023-01-21 12:59:05.930 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Contributors" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Contributors" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL
+);
+2023-01-21 12:59:05.961 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "Projects" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_Projects" PRIMARY KEY AUTOINCREMENT,
+    "Name" TEXT NOT NULL,
+    "Priority" INTEGER NOT NULL
+);
+2023-01-21 12:59:05.964 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE "ToDoItems" (
+    "Id" INTEGER NOT NULL CONSTRAINT "PK_ToDoItems" PRIMARY KEY AUTOINCREMENT,
+    "Title" TEXT NOT NULL,
+    "Description" TEXT NOT NULL,
+    "ContributorId" INTEGER NULL,
+    "IsDone" INTEGER NOT NULL,
+    "ProjectId" INTEGER NULL,
+    CONSTRAINT "FK_ToDoItems_Projects_ProjectId" FOREIGN KEY ("ProjectId") REFERENCES "Projects" ("Id")
+);
+2023-01-21 12:59:05.973 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX "IX_ToDoItems_ProjectId" ON "ToDoItems" ("ProjectId");
+2023-01-21 12:59:06.273 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-01-21 12:59:06.507 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."Name", "p"."Priority"
+FROM "Projects" AS "p"
+2023-01-21 12:59:06.584 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."ContributorId", "t"."Description", "t"."IsDone", "t"."ProjectId", "t"."Title"
+FROM "ToDoItems" AS "t"
+2023-01-21 12:59:06.594 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."Name"
+FROM "Contributors" AS "c"
+2023-01-21 12:59:06.843 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 7)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name")
+VALUES (@p0)
+RETURNING "Id";
+2023-01-21 12:59:07.132 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Contributors" ("Name")
+VALUES (@p0)
+RETURNING "Id";
+2023-01-21 12:59:07.503 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 12), @p1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Projects" ("Name", "Priority")
+VALUES (@p0, @p1)
+RETURNING "Id";
+2023-01-21 12:59:07.542 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p2='?' (DbType = Int32), @p3='?' (Size = 31), @p4='?' (DbType = Boolean), @p5='?' (DbType = Int32), @p6='?' (Size = 18)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("ContributorId", "Description", "IsDone", "ProjectId", "Title")
+VALUES (@p2, @p3, @p4, @p5, @p6)
+RETURNING "Id";
+2023-01-21 12:59:07.548 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 81), @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32), @p4='?' (Size = 15)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("ContributorId", "Description", "IsDone", "ProjectId", "Title")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+2023-01-21 12:59:07.563 +07:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 59), @p2='?' (DbType = Boolean), @p3='?' (DbType = Int32), @p4='?' (Size = 20)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ToDoItems" ("ContributorId", "Description", "IsDone", "ProjectId", "Title")
+VALUES (@p0, @p1, @p2, @p3, @p4)
+RETURNING "Id";
+2023-01-21 12:59:07.652 +07:00 [INF] Creating key {ff48aa39-8046-4c1b-b718-91132bb0231b} with creation date 2023-01-21 05:59:07Z, activation date 2023-01-21 05:59:07Z, and expiration date 2023-04-21 05:59:07Z.
+2023-01-21 12:59:07.667 +07:00 [INF] Writing data to file 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys\key-ff48aa39-8046-4c1b-b718-91132bb0231b.xml'.
+2023-01-21 12:59:07.748 +07:00 [INF] Now listening on: http://localhost:57679
+2023-01-21 12:59:07.756 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-21 12:59:07.757 +07:00 [INF] Hosting environment: Development
+2023-01-21 12:59:07.758 +07:00 [INF] Content root path: C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web
+2023-01-21 12:59:08.862 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 12:59:09.020 +07:00 [WRN] Failed to determine the https port for redirect.
+2023-01-21 12:59:09.074 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 12:59:09.095 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 12:59:09.109 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 12:59:09.260 +07:00 [INF] Executed ViewResult - view Index executed in 148.6749ms.
+2023-01-21 12:59:09.346 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2023-01-21 12:59:09.389 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-01-21 12:59:09.346 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - -
+2023-01-21 12:59:09.562 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 463.3699ms
+2023-01-21 12:59:09.573 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 12:59:09.579 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 718.8230ms
+2023-01-21 12:59:09.587 +07:00 [INF] Sending file. Request path: '/Your.TestCleanArhitecture.Web.styles.css'. Physical path: 'C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web\obj\Debug\net7.0\scopedcss\bundle\Your.TestCleanArhitecture.Web.styles.css'
+2023-01-21 12:59:09.587 +07:00 [INF] Sending file. Request path: '/css/site.css'. Physical path: 'C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web\wwwroot\css\site.css'
+2023-01-21 12:59:09.595 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-01-21 12:59:09.600 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - -
+2023-01-21 12:59:09.600 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - - - 200 1146 text/css 253.2345ms
+2023-01-21 12:59:09.602 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 200 194 text/css 255.5755ms
+2023-01-21 12:59:09.611 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2023-01-21 12:59:09.613 +07:00 [INF] Sending file. Request path: '/lib/jquery/dist/jquery.min.js'. Physical path: 'C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web\wwwroot\lib\jquery\dist\jquery.min.js'
+2023-01-21 12:59:09.614 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js'. Physical path: 'C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js'
+2023-01-21 12:59:09.620 +07:00 [INF] Sending file. Request path: '/lib/bootstrap/dist/css/bootstrap.min.css'. Physical path: 'C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css'
+2023-01-21 12:59:09.622 +07:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web\wwwroot\js\site.js'
+2023-01-21 12:59:09.623 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - - - 200 89478 text/javascript 23.5343ms
+2023-01-21 12:59:09.625 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 200 78474 text/javascript 29.5002ms
+2023-01-21 12:59:09.641 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 200 162726 text/css 252.1424ms
+2023-01-21 12:59:09.642 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 200 230 text/javascript 31.1170ms
+2023-01-21 12:59:10.185 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/favicon.ico - -
+2023-01-21 12:59:10.192 +07:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web\wwwroot\favicon.ico'
+2023-01-21 12:59:10.376 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/favicon.ico - - - 200 5430 image/x-icon 190.9729ms
+2023-01-21 13:01:09.578 +07:00 [INF] Application is shutting down...
+2023-01-21 13:03:00.729 +07:00 [INF] Registered 5 endpoints in 280 milliseconds.
+2023-01-21 13:03:00.979 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 13:03:02.091 +07:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-01-21 13:03:02.354 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-01-21 13:03:02.454 +07:00 [INF] Now listening on: http://localhost:57679
+2023-01-21 13:03:02.457 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-21 13:03:02.459 +07:00 [INF] Hosting environment: Development
+2023-01-21 13:03:02.460 +07:00 [INF] Content root path: C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web
+2023-01-21 13:03:02.542 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger - -
+2023-01-21 13:03:02.656 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 13:03:02.666 +07:00 [WRN] Failed to determine the https port for redirect.
+2023-01-21 13:03:02.742 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:03:02.748 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger - - - 301 0 - 207.9503ms
+2023-01-21 13:03:02.755 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:03:02.762 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 13:03:02.776 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 13:03:02.863 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 107.8689ms
+2023-01-21 13:03:02.908 +07:00 [INF] Executed ViewResult - view Index executed in 132.1129ms.
+2023-01-21 13:03:02.911 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 146.1637ms
+2023-01-21 13:03:02.954 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:03:02.957 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 301.1962ms
+2023-01-21 13:03:02.966 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-01-21 13:03:02.966 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2023-01-21 13:03:02.966 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - -
+2023-01-21 13:03:02.975 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-01-21 13:03:02.975 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - -
+2023-01-21 13:03:03.033 +07:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-01-21 13:03:03.033 +07:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-01-21 13:03:03.033 +07:00 [INF] The file /css/site.css was not modified
+2023-01-21 13:03:03.033 +07:00 [INF] The file /Your.TestCleanArhitecture.Web.styles.css was not modified
+2023-01-21 13:03:03.033 +07:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-01-21 13:03:03.038 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 62.8054ms
+2023-01-21 13:03:03.039 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 63.7047ms
+2023-01-21 13:03:03.040 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 304 - text/css 73.8974ms
+2023-01-21 13:03:03.041 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - - - 304 - text/css 74.9437ms
+2023-01-21 13:03:03.043 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 76.9772ms
+2023-01-21 13:03:03.045 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2023-01-21 13:03:03.070 +07:00 [INF] The file /js/site.js was not modified
+2023-01-21 13:03:03.077 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 304 - text/javascript 32.2851ms
+2023-01-21 13:03:03.128 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui.css - -
+2023-01-21 13:03:03.147 +07:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2023-01-21 13:03:03.152 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui.css - - - 200 143943 text/css 24.3303ms
+2023-01-21 13:03:03.160 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-bundle.js - -
+2023-01-21 13:03:03.166 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-standalone-preset.js - -
+2023-01-21 13:03:03.176 +07:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2023-01-21 13:03:03.184 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-bundle.js - - - 200 1096145 text/javascript 23.9148ms
+2023-01-21 13:03:03.187 +07:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2023-01-21 13:03:03.196 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/swagger-ui-standalone-preset.js - - - 200 339486 text/javascript 30.4590ms
+2023-01-21 13:03:04.025 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/favicon-32x32.png - -
+2023-01-21 13:03:04.028 +07:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2023-01-21 13:03:04.034 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/favicon-32x32.png - - - 200 628 image/png 8.5531ms
+2023-01-21 13:03:04.627 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-01-21 13:03:04.888 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 261.1310ms
+2023-01-21 13:03:06.926 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:03:06.956 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 29.9120ms
+2023-01-21 13:03:07.621 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-01-21 13:03:07.641 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 19.0888ms
+2023-01-21 13:05:16.933 +07:00 [INF] Application is shutting down...
+2023-01-21 13:22:30.030 +07:00 [INF] Registered 5 endpoints in 173 milliseconds.
+2023-01-21 13:22:30.195 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 13:22:30.795 +07:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-01-21 13:22:30.975 +07:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-01-21 13:22:31.054 +07:00 [INF] Now listening on: http://localhost:57679
+2023-01-21 13:22:31.056 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-21 13:22:31.056 +07:00 [INF] Hosting environment: Development
+2023-01-21 13:22:31.057 +07:00 [INF] Content root path: C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web
+2023-01-21 13:22:31.556 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 13:22:31.632 +07:00 [WRN] Failed to determine the https port for redirect.
+2023-01-21 13:22:31.663 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:22:31.676 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 13:22:31.699 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 13:22:31.823 +07:00 [INF] Executed ViewResult - view Index executed in 126.3728ms.
+2023-01-21 13:22:31.902 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2023-01-21 13:22:31.881 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-01-21 13:22:31.963 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - -
+2023-01-21 13:22:31.966 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - -
+2023-01-21 13:22:32.009 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 325.0935ms
+2023-01-21 13:22:32.016 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:22:32.026 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 471.3452ms
+2023-01-21 13:22:32.032 +07:00 [INF] The file /Your.TestCleanArhitecture.Web.styles.css was not modified
+2023-01-21 13:22:32.032 +07:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-01-21 13:22:32.032 +07:00 [INF] The file /css/site.css was not modified
+2023-01-21 13:22:32.032 +07:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-01-21 13:22:32.034 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-01-21 13:22:32.035 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - - - 304 - text/css 72.8432ms
+2023-01-21 13:22:32.035 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 154.1908ms
+2023-01-21 13:22:32.038 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 304 - text/css 135.7221ms
+2023-01-21 13:22:32.039 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 73.5589ms
+2023-01-21 13:22:32.041 +07:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-01-21 13:22:32.074 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 40.4335ms
+2023-01-21 13:22:32.048 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2023-01-21 13:22:32.078 +07:00 [INF] The file /js/site.js was not modified
+2023-01-21 13:22:32.082 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 304 - text/javascript 34.1151ms
+2023-01-21 13:22:42.725 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:22:42.812 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 86.8766ms
+2023-01-21 13:22:43.200 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-01-21 13:22:43.397 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 197.1897ms
+2023-01-21 13:36:43.125 +07:00 [INF] Application is shutting down...
+2023-01-21 13:36:56.637 +07:00 [INF] Registered 5 endpoints in 184 milliseconds.
+2023-01-21 13:36:56.764 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 13:36:57.431 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-01-21 13:36:57.644 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-01-21 13:36:57.724 +07:00 [INF] Now listening on: http://localhost:57679
+2023-01-21 13:36:57.725 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-21 13:36:57.727 +07:00 [INF] Hosting environment: Development
+2023-01-21 13:36:57.728 +07:00 [INF] Content root path: C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web
+2023-01-21 13:36:57.970 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 13:36:58.055 +07:00 [WRN] Failed to determine the https port for redirect.
+2023-01-21 13:36:58.089 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:36:58.097 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 13:36:58.111 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 13:36:58.202 +07:00 [INF] Executed ViewResult - view Index executed in 92.5074ms.
+2023-01-21 13:36:58.207 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 107.0214ms
+2023-01-21 13:36:58.266 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-01-21 13:36:58.290 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2023-01-21 13:36:58.295 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-01-21 13:36:58.295 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - -
+2023-01-21 13:36:58.297 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:36:58.312 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 345.9418ms
+2023-01-21 13:36:58.314 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - -
+2023-01-21 13:36:58.322 +07:00 [INF] The file /css/site.css was not modified
+2023-01-21 13:36:58.322 +07:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-01-21 13:36:58.322 +07:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-01-21 13:36:58.323 +07:00 [INF] The file /Your.TestCleanArhitecture.Web.styles.css was not modified
+2023-01-21 13:36:58.324 +07:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-01-21 13:36:58.326 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 304 - text/css 36.0404ms
+2023-01-21 13:36:58.327 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 31.7056ms
+2023-01-21 13:36:58.328 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 61.7537ms
+2023-01-21 13:36:58.329 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - - - 304 - text/css 34.2329ms
+2023-01-21 13:36:58.331 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 16.7080ms
+2023-01-21 13:36:58.342 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2023-01-21 13:36:58.345 +07:00 [INF] The file /js/site.js was not modified
+2023-01-21 13:36:58.346 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 304 - text/javascript 4.0125ms
+2023-01-21 13:37:03.703 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:37:03.775 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 71.2442ms
+2023-01-21 13:37:04.044 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-01-21 13:37:04.053 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 404 0 - 8.2978ms
+2023-01-21 13:40:16.009 +07:00 [INF] Application is shutting down...
+2023-01-21 13:40:25.416 +07:00 [INF] Registered 5 endpoints in 170 milliseconds.
+2023-01-21 13:40:25.538 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 13:40:26.115 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-01-21 13:40:26.285 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-01-21 13:40:26.357 +07:00 [INF] Now listening on: http://localhost:57679
+2023-01-21 13:40:26.359 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-21 13:40:26.360 +07:00 [INF] Hosting environment: Development
+2023-01-21 13:40:26.361 +07:00 [INF] Content root path: C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web
+2023-01-21 13:40:26.767 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 13:40:26.848 +07:00 [WRN] Failed to determine the https port for redirect.
+2023-01-21 13:40:26.878 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:40:26.886 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 13:40:26.898 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 13:40:27.030 +07:00 [INF] Executed ViewResult - view Index executed in 125.5484ms.
+2023-01-21 13:40:27.163 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 274.0578ms
+2023-01-21 13:40:27.166 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:40:27.178 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 411.9276ms
+2023-01-21 13:40:29.885 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:40:29.956 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 70.9432ms
+2023-01-21 13:40:30.217 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/API for TRPO Version 1/swagger.json - -
+2023-01-21 13:40:30.224 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/API for TRPO Version 1/swagger.json - - - 404 0 - 7.1789ms
+2023-01-21 13:40:55.709 +07:00 [INF] Application is shutting down...
+2023-01-21 13:41:04.696 +07:00 [INF] Registered 5 endpoints in 273 milliseconds.
+2023-01-21 13:41:04.978 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 13:41:14.439 +07:00 [INF] Registered 5 endpoints in 168 milliseconds.
+2023-01-21 13:41:14.566 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 13:41:15.189 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-01-21 13:41:15.359 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-01-21 13:41:15.430 +07:00 [INF] Now listening on: http://localhost:57679
+2023-01-21 13:41:15.432 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-21 13:41:15.433 +07:00 [INF] Hosting environment: Development
+2023-01-21 13:41:15.434 +07:00 [INF] Content root path: C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web
+2023-01-21 13:41:15.740 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:41:15.752 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 13:41:15.837 +07:00 [WRN] Failed to determine the https port for redirect.
+2023-01-21 13:41:15.865 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:41:15.876 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 13:41:15.891 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 13:41:15.948 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 213.1685ms
+2023-01-21 13:41:16.015 +07:00 [INF] Executed ViewResult - view Index executed in 125.2736ms.
+2023-01-21 13:41:16.061 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - -
+2023-01-21 13:41:16.061 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 180.3747ms
+2023-01-21 13:41:16.064 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:41:16.069 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 316.7789ms
+2023-01-21 13:41:16.119 +07:00 [INF] The file /Your.TestCleanArhitecture.Web.styles.css was not modified
+2023-01-21 13:41:16.130 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/Your.TestCleanArhitecture.Web.styles.css?v=-gFFKm7lnGkof1bODdqMJ6fzgIgui1-6BAWBCCQtGR8 - - - 304 - text/css 69.2832ms
+2023-01-21 13:41:16.876 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-01-21 13:41:16.884 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 404 0 - 8.0598ms
+2023-01-21 13:41:17.527 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:41:17.530 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 3.1052ms
+2023-01-21 13:41:17.823 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - -
+2023-01-21 13:41:17.826 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/v1/swagger.json - - - 404 0 - 2.5105ms
+2023-01-21 13:41:39.570 +07:00 [INF] Application is shutting down...
+2023-01-21 13:41:48.212 +07:00 [INF] Registered 5 endpoints in 162 milliseconds.
+2023-01-21 13:41:48.333 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 13:41:48.919 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-01-21 13:41:49.098 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-01-21 13:41:49.168 +07:00 [INF] Now listening on: http://localhost:57679
+2023-01-21 13:41:49.170 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-21 13:41:49.171 +07:00 [INF] Hosting environment: Development
+2023-01-21 13:41:49.173 +07:00 [INF] Content root path: C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web
+2023-01-21 13:41:49.719 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 13:41:49.786 +07:00 [WRN] Failed to determine the https port for redirect.
+2023-01-21 13:41:49.812 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:41:49.821 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 13:41:49.832 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 13:41:49.922 +07:00 [INF] Executed ViewResult - view Index executed in 91.4445ms.
+2023-01-21 13:41:49.927 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 102.5158ms
+2023-01-21 13:41:49.959 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - -
+2023-01-21 13:41:49.959 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - -
+2023-01-21 13:41:49.963 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:41:49.971 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 254.2916ms
+2023-01-21 13:41:49.984 +07:00 [INF] The file /css/site.css was not modified
+2023-01-21 13:41:49.984 +07:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2023-01-21 13:41:49.986 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/css/site.css?v=AKvNjO3dCPPS0eSU1Ez8T2wI280i08yGycV9ndytL-c - - - 304 - text/css 26.5470ms
+2023-01-21 13:41:49.989 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 29.3241ms
+2023-01-21 13:41:50.064 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2023-01-21 13:41:50.064 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - -
+2023-01-21 13:41:50.064 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2023-01-21 13:41:50.067 +07:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2023-01-21 13:41:50.067 +07:00 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2023-01-21 13:41:50.069 +07:00 [INF] The file /js/site.js was not modified
+2023-01-21 13:41:50.070 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - text/javascript 5.7816ms
+2023-01-21 13:41:50.071 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/lib/jquery/dist/jquery.min.js - - - 304 - text/javascript 7.1940ms
+2023-01-21 13:41:50.078 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 304 - text/javascript 14.0884ms
+2023-01-21 13:41:53.138 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:41:53.247 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 109.4498ms
+2023-01-21 13:41:53.501 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - -
+2023-01-21 13:41:53.674 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - - - 200 - application/json;charset=utf-8 172.8778ms
+2023-01-21 13:42:05.981 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - -
+2023-01-21 13:42:05.989 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - - - 200 - application/json;charset=utf-8 8.2924ms
+2023-01-21 13:42:35.008 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:42:35.011 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 3.6375ms
+2023-01-21 13:42:35.262 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - -
+2023-01-21 13:42:35.288 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - - - 200 - application/json;charset=utf-8 26.7205ms
+2023-01-21 13:43:17.537 +07:00 [INF] Application is shutting down...
+2023-01-21 13:43:25.598 +07:00 [INF] Registered 5 endpoints in 186 milliseconds.
+2023-01-21 13:43:25.751 +07:00 [INF] User profile is available. Using 'C:\Users\Александр\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-01-21 13:43:26.370 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+2023-01-21 13:43:26.543 +07:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT EXISTS (
+    SELECT 1
+    FROM "ToDoItems" AS "t")
+2023-01-21 13:43:26.613 +07:00 [INF] Now listening on: http://localhost:57679
+2023-01-21 13:43:26.614 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-01-21 13:43:26.615 +07:00 [INF] Hosting environment: Development
+2023-01-21 13:43:26.617 +07:00 [INF] Content root path: C:\Users\Александр\Your.TestCleanArhitecture\src\Your.TestCleanArhitecture.Web
+2023-01-21 13:43:27.105 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 13:43:27.185 +07:00 [WRN] Failed to determine the https port for redirect.
+2023-01-21 13:43:27.217 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:43:27.227 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 13:43:27.237 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 13:43:27.327 +07:00 [INF] Executed ViewResult - view Index executed in 90.4078ms.
+2023-01-21 13:43:27.332 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 102.2366ms
+2023-01-21 13:43:27.436 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:43:27.448 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 345.5200ms
+2023-01-21 13:43:29.020 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:43:29.099 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 79.3076ms
+2023-01-21 13:43:29.361 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - -
+2023-01-21 13:43:29.556 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - - - 200 - application/json;charset=utf-8 195.0918ms
+2023-01-21 13:44:14.942 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/ - -
+2023-01-21 13:44:14.945 +07:00 [INF] Executing endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:44:14.948 +07:00 [INF] Route matched with {action = "Index", controller = "Home", page = ""}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller Your.TestCleanArhitecture.Web.Controllers.HomeController (Your.TestCleanArhitecture.Web).
+2023-01-21 13:44:14.951 +07:00 [INF] Executing ViewResult, running view Index.
+2023-01-21 13:44:14.957 +07:00 [INF] Executed ViewResult - view Index executed in 5.7179ms.
+2023-01-21 13:44:14.962 +07:00 [INF] Executed action Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web) in 11.6138ms
+2023-01-21 13:44:14.964 +07:00 [INF] Executed endpoint 'Your.TestCleanArhitecture.Web.Controllers.HomeController.Index (Your.TestCleanArhitecture.Web)'
+2023-01-21 13:44:14.968 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/ - - - 200 - text/html;+charset=utf-8 26.0498ms
+2023-01-21 13:44:16.455 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/index.html - -
+2023-01-21 13:44:16.459 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/index.html - - - 200 - text/html;charset=utf-8 4.2667ms
+2023-01-21 13:44:16.717 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - -
+2023-01-21 13:44:16.728 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - - - 200 - application/json;charset=utf-8 10.7424ms
+2023-01-21 13:44:18.328 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - -
+2023-01-21 13:44:18.336 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:57679/swagger/Version 1/swagger.json - - - 200 - application/json;charset=utf-8 7.8162ms
+2023-01-21 14:10:41.626 +07:00 [INF] Application is shutting down...
