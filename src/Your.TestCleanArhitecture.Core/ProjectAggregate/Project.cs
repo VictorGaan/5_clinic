@@ -7,7 +7,11 @@ namespace Your.TestCleanArhitecture.Core.ProjectAggregate;
 
 public class Project : EntityBase, IAggregateRoot
 {
-  public string Name { get; private set; }
+  public string? FirstName { get; set; }
+  public string? LastName { get; set; }
+  public string? MiddleName { get; set; }
+  public int? Post { get; set; }
+  public int? ReceptionSchedule { get; set; }
 
   private List<ToDoItem> _items = new List<ToDoItem>();
   public IEnumerable<ToDoItem> Items => _items.AsReadOnly();
@@ -15,9 +19,13 @@ public class Project : EntityBase, IAggregateRoot
 
   public PriorityStatus Priority { get; }
 
-  public Project(string name, PriorityStatus priority)
+  public Project(string firstName, string lastName, string middleName, int _post, int receptionSchedule, PriorityStatus priority)
   {
-    Name = Guard.Against.NullOrEmpty(name, nameof(name));
+    FirstName = Guard.Against.NullOrEmpty(firstName, nameof(firstName));
+    LastName = Guard.Against.NullOrEmpty(lastName, nameof(lastName));
+    MiddleName = Guard.Against.NullOrEmpty(middleName, nameof(middleName));
+    Post = _post;
+    ReceptionSchedule = receptionSchedule;
     Priority = priority;
   }
 
@@ -32,6 +40,6 @@ public class Project : EntityBase, IAggregateRoot
 
   public void UpdateName(string newName)
   {
-    Name = Guard.Against.NullOrEmpty(newName, nameof(newName));
+    FirstName = Guard.Against.NullOrEmpty(newName, nameof(newName));
   }
 }

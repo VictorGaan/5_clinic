@@ -27,7 +27,7 @@ public class ProjectsController : BaseApiController
         .Select(project => new ProjectDTO
         (
             id: project.Id,
-            name: project.Name
+            name: project.FirstName
         ))
         .ToList();
 
@@ -48,7 +48,7 @@ public class ProjectsController : BaseApiController
     var result = new ProjectDTO
     (
         id: project.Id,
-        name: project.Name,
+        name: project.FirstName,
         items: new List<ToDoItemDTO>
         (
             project.Items.Select(i => ToDoItemDTO.FromToDoItem(i)).ToList()
@@ -69,7 +69,7 @@ public class ProjectsController : BaseApiController
     var result = new ProjectDTO
     (
         id: createdProject.Id,
-        name: createdProject.Name
+        name: createdProject.FirstName
     );
     return Ok(result);
   }

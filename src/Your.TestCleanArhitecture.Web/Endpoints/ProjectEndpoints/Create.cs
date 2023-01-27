@@ -38,7 +38,7 @@ public class Create : EndpointBaseAsync
     var response = new CreateProjectResponse
     (
       id: createdItem.Id,
-      name: createdItem.Name
+      name: createdItem.FirstName
     );
 
     return Ok(response);

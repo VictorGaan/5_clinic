@@ -30,7 +30,7 @@ public class ProjectController : Controller
     var dto = new ProjectViewModel
     {
       Id = project.Id,
-      Name = project.Name,
+      Name = project.FirstName,
       Items = project.Items
                     .Select(item => ToDoItemViewModel.FromToDoItem(item))
                     .ToList()

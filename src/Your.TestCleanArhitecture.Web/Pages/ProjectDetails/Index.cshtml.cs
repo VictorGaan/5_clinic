@@ -37,7 +37,7 @@ public class IndexModel : PageModel
     Project = new ProjectDTO
     (
         id: project.Id,
-        name: project.Name,
+        name: project.FirstName,
         items: project.Items
         .Select(item => ToDoItemDTO.FromToDoItem(item))
         .ToList()
