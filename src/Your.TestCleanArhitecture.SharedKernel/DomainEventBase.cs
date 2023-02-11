@@ -1,8 +1,0 @@
-﻿using MediatR;
-
-namespace Your.TestCleanArhitecture.SharedKernel;
-
-public abstract class DomainEventBase : INotification
-{
-  public DateTime DateOccurred { get; protected set; } = DateTime.UtcNow;
-}

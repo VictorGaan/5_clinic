@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\Your.TestCleanArhitecture.Web.props" />
-</Project>
