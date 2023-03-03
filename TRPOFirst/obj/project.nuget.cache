@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mF9M+YaE8tK1CiYZSmpsSNpIhADOZOCucYCc8wvLV2E4xoRbVEC46b0C5WbSMKQ2ktyyMK8GBx+LmhlDI9oFVQ==",
+  "dgSpecHash": "VXaImwNBQJ6tjapK+1eGa15U/EkK/2vNOcHob/oZn5nuuEc5R4MbEauJYk1DHJWrMHU3WHuV1eyJrVOO+mMYBg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Александр\\Desktop\\TRPOFirst\\TRPOFirst\\TRPOFirst.csproj",
+  "projectFilePath": "C:\\Users\\Александр\\Documents\\GitHub\\5_clinic\\TRPOFirst\\TRPOFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\Александр\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.2\\microsoft.entityframeworkcore.7.0.2.nupkg.sha512",

@@ -1127,11 +1127,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Александр\\Desktop\\TRPOFirst\\TRPOFirst\\TRPOFirst.csproj",
+      "projectUniqueName": "C:\\Users\\Александр\\Documents\\GitHub\\5_clinic\\TRPOFirst\\TRPOFirst.csproj",
       "projectName": "TRPOFirst",
-      "projectPath": "C:\\Users\\Александр\\Desktop\\TRPOFirst\\TRPOFirst\\TRPOFirst.csproj",
+      "projectPath": "C:\\Users\\Александр\\Documents\\GitHub\\5_clinic\\TRPOFirst\\TRPOFirst.csproj",
       "packagesPath": "C:\\Users\\Александр\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Александр\\Desktop\\TRPOFirst\\TRPOFirst\\obj\\",
+      "outputPath": "C:\\Users\\Александр\\Documents\\GitHub\\5_clinic\\TRPOFirst\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Александр\\AppData\\Roaming\\NuGet\\NuGet.Config"

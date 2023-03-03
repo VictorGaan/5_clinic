@@ -22,5 +22,6 @@ public class MyDbContext : DbContext
                       "Database=Hospital;" +
                       "Username=postgres;" +
                       "Password=****");
+        // Не могу разобратся с CodeFirst подъодом
     }
 }
